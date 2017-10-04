@@ -23,6 +23,8 @@ class Api_Goods extends PhalApi_Api{
      */
     public function snapshot()
     {
-
+        $domain = new Domain_Goods();
+        $info = $domain->snapshot($this->goodsId);
+        return $info;
     }
 }
