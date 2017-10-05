@@ -29,12 +29,10 @@ public/docs
 Public/upload
 public/uploads
 
-#配置文件
-Config/
-
 
 vendor
 composer.lock
 
 gitc
 
+/Config/
