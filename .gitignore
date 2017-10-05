@@ -30,7 +30,7 @@ Public/upload
 public/uploads
 
 #配置文件
-Config/*.php
+Config/
 
 
 vendor
