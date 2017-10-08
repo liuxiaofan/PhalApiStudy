@@ -7,10 +7,16 @@
  */
 class Domain_User
 {
-    public function getUserinfo($userId)
+    public function getUserBaseInfo($userId)
     {
+        $info = array();
+        $userId = intval($userId);
+        if ($userId < 1)
+        {
+            return $info;
+        }
         $model = new Model_User();
-        $userinfo = $model->get($userId);
-        return $userinfo;
+        $info = $model->get($userId);
+        return $info;
     }
 }

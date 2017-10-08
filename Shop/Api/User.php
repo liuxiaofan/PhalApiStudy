@@ -10,7 +10,7 @@ class Api_User extends PhalApi_Api
     public function getRules()
     {
         return array(
-            'userinfo'=>array(
+            'getUserBaseInfo'=>array(
                 'userId'=>array('name'=>'id','desc'=>'用户ID','type'=>'int','min'=>1),
             )
         );
@@ -24,8 +24,17 @@ class Api_User extends PhalApi_Api
      * @return string note 笔记
      * @return string create_date 注册时间
      */
-    public function userinfo()
+    public function getUserBaseInfo()
     {
-
+        $rs = array('code'=>0,'msg'=>'','data'=>null);
+        $domain = new Domain_User();
+        $info = $domain->getUserBaseInfo($this->userId);
+        if (empty($info))
+        {
+            $rs['code'] = -1;
+            $rs['msg'] = T("not find user!");
+        }
+        $rs['data'] = $info;
+        return $rs;
     }
 }
